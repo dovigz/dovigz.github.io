@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../css/popup.css">
+    <!-- <script src="../js/content.js"></script> -->
+</head>
+<body>
+    <h1><span>TimeCheck #1 $ Saver</span><img id="changeSettings" alt="Settings icon" title="Settings/Report a problem" src="../images/clock512.png" /></h1>
+  <h2>Click on the $clock  above to set or change your salary/Hours worked.</h2>
+
+
+    <div id="noVars" class="hidden">
+        <p>Please click</p>
+        <div class="popupButton" id="setUpOptions">HERE</div>
+        <p>to set up this extension</p>
+    </div>
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <div id="main" class="main hidden">
+        <div id="costSummary">
+            <p>Based on items removed from your shopping cart it seems that you saved </p>
+            <span class="focusedText">$</span><span class="focusedText counter" id="totalCost"></span> 
+            <div id="hrConvert"></div>
+            
+            <p>Great Job!!</p>
+            <span align="center">
+            <input   type="image" src="../images/tweet.png" name="tweet" class="tweet submit" id="tweet" />
+        </span>
+        </div>
+    </div>
+    
+    
+
+            <div id="noTtl" class="hidden">
+                <p> When you remove items from your shopping cart you see here 
+                how much you saved here</p> 
+                <p>If you think this is wrong, and it has been 24 hours please email <a href="mailto:TimeCheckMoneySaver@gmail.com
+                    ">TimeCheckMoneySaver@gmail.com</a>
+                     with the following details:</p>
+                <ul>
+                    <li>What website you're using</li>
+                    <li>Version of chrome</li>
+                    <li>Copy/paste of the URL you're on</li>
+                </ul>
+                <p>Thanks!</p>
+            </div>
+                
+
+
+    
+
+
+    <script src="../js/popup.js"></script>
+    <!-- <script src="../js/content.js"></script> -->
+</body>
+</html>

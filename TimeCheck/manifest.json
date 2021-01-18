@@ -1,0 +1,76 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+    "name": "TimeCheck",
+    "version": "1.4",
+    "description": "Changes your \"Order Total\" to how much hours/days... you would have to work to pay for your purchase.",
+    "options_page": "html/options.html",
+    "permissions": [ "activeTab", "declarativeContent", "storage" ],
+    
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.amazon.com/gp/*",
+                "https://pay.ebay.com/*",
+                "https://cart.ebay.com/*",
+                "https://www.etsy.com/cart/*",
+                "https://www.etsy.com/cart*",
+                "https://www.walmart.com/cart",
+                "https://www.walmart.com/checkout*",
+                "https://www.walmart.com/checkout/*",
+                "https://www.walmart.com/checkout",
+                "https://www.overstock.com/cart*",
+                "https://www.overstock.com/checkout/*",
+                "https://www.bestbuy.com/cart",
+                "https://www.bestbuy.com/checkout",
+                "https://www.bestbuy.com/checkout*",
+                "https://www.bestbuy.com/checkout/*",
+                "https://www.kohls.com/checkout/*",
+                "https://shoppingcart.aliexpress.com/*",
+                "https://store.ferrari.com/us/OnePageCheckout/*",
+                "https://www.apple.com/shop/bag",
+                "https://secure4.store.apple.com/shop/*",
+                "https://secure3.store.apple.com/shop/*",
+                "https://secure2.store.apple.com/shop/*",
+                "https://secure1.store.apple.com/shop/*",
+                "https://www.macys.com/my-bag",
+                "https://www.macys.com/chkout/*",
+                "https://www.ulta.com/bag",
+                "https://www.ulta.com/checkout",
+                "https://www.sephora.com/basket",
+                "https://www.sephora.com/checkout/*",
+                "https://www.wayfair.com/v/checkout/basket/*",
+                "https://secure.wayfair.com/v/checkout/*",
+                "https://www.nike.com/cart",
+                "https://www.nike.com/checkout",
+                "https://www.lowes.com/cart",
+                "https://www.costco.com/Checkout*",
+                "https://www.costco.com/SinglePageCheckoutView*",
+                "https://cart.payments.ebay.com/"
+                
+            ],
+            "all_frames": true,
+            "js": [
+                
+                "js/content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],    
+    "background": {
+        "scripts": [ "js/background.js" ],
+        "persistent": false
+    },
+
+    "page_action": {
+        "default_popup": "html/popup.html",
+        "default_icon": {
+            "512": "images/clock512.png"
+        }
+    },
+    "icons": {
+
+        "512": "images/clock512.png"
+    },
+    "manifest_version": 2
+}

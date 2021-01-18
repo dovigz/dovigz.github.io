@@ -1,0 +1,64 @@
+body {
+    width: 300px;
+    max-height: 400px;
+    margin: 0;
+    background-color:#5bb2e8
+    
+    ;
+}
+
+#main, #noOptions {
+    background-color: #E7FEFF
+    ;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid gray;
+    margin: 10px;
+}
+
+h1 {
+    background-color: #1c94e3;
+    color: white;
+    height: 40px;
+    font-size: 23px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+h2{
+    background-color: #1c94e3;
+    color: white;
+}
+
+img{
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+}
+
+p{
+    color: #1c94e3;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+
+.focusedText {
+    color: #1c94e3;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+.popupButton {
+    background-color: #7dc2ec;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}

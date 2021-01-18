@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- <script src="../js/options.js"></script> -->
+        <link rel="stylesheet" href="../css/options.css">
+         
+      </head>
+<body>
+    
+    <div class="wrapper">
+        
+        <header>
+            <p  class="welcomeTxt"> Hi thanks for downloading my extension! To get the best results to convert the total into days, hours, minutes worked I just need some information from you.
+            </p>
+        </header>
+            
+    <section class="columns">
+        <div   id="hideArrow"><img class="arrow" src="../images/arrow.png" alt=""></div>
+
+        <div class="column col1">
+            <span>
+               
+              <span class="step1">
+              <span class="e1">
+              <span >Please enter your Hourly salary </span>
+               <input class="radio" id="pph" type="number" min="1" placeholder="$0"> <button id="hrSal">Submit</button></span>
+               <div class="e2">-OR-</div>
+              <span class="e3"> <span class="form-radio"  id="form_radio">
+               <label for="radio">How often do you get paid?</label>
+               <div class="form-flex">
+                 <input class="radio" type="radio" name="radio" value="annual" id="annual"/>
+                 <label for="annual">Annual</label>
+           
+                 <input class="radio" type="radio" name="radio" value="monthly" id="monthly"/>
+                 <label for="monthly">Monthly</label>
+           
+                 <input class="radio" type="radio" name="radio" value="biweekly" id="biweekly"/>
+                 <label for="biweekly">Biweekly</label>
+           
+                 <input class="radio" type="radio" name="radio" value="weekly" id="weekly"/>
+                 <label for="weekly">Weekly</label>
+               </div>
+               
+             </span>
+             <br>
+             <span >Please enter your <span id="changeText"></span> Paycheck</span>
+    <input class="radio" id="salary" type="number" min="1" placeholder="$0">  <button id="radioSal">Submit</button></span> 
+   </span>
+   <br>
+   <img class="clock" src="../images/clock512.png"  height="250" alt="$clock img">
+    </span>
+        </div>
+        
+
+      
+      <div class="column col2" >
+        <div class="e4"><p class="e4Txt">Please enter your daily hours so we can get an accurate estimate of your hours worked.</p>
+
+            <table border="1">
+             
+             <tbody>
+             <tr>
+             <td></td>
+             <td>From:</td>
+             <td>To:</td>
+             <td>Daily Hours worked:</td>
+             </tr>
+             <tr>
+             <td>Monday</td>
+             
+             <td><input class="day" type="time" id="start1"> </td>
+              <td><input class="day" type="time" id="end1"> </td>
+             <td><span class="total" id="total1"></span></td>
+             </tr>
+             <tr>
+             <td>Tuesday</td>
+             <td><input class="day" type="time" id="start2"> </td>
+             <td><input class="day" type="time" id="end2"> </td>
+             <td><span class="total" id="total2"></span></td>
+             </tr>
+             <tr>
+             <td>Wednesday</td>
+             <td><input class="day" type="time" id="start3"> </td>
+             <td><input class="day" type="time" id="end3"> </td>
+             <td><span class="total"  id="total3"></span></td>
+             </tr>
+             <tr>
+             <td>Thursday</td>
+             <td><input class="day" type="time" id="start4"> </td>
+             <td><input class="day" type="time" id="end4"> </td>
+             <td><span class="total" id="total4"></span></td>
+             </tr>
+             <tr>
+             <td>Friday</td>
+             <td><input class="day" type="time" id="start5"> </td>
+             <td><input class="day" type="time" id="end5"> </td>
+             <td><span class="total" id="total5"></span></td>
+             </tr>
+             <tr>
+             <td>Saturday</td>
+             <td><input class="day" type="time" id="start6"> </td>
+             <td><input class="day" type="time" id="end6"> </td>
+             <td><span class="total" id="total6"></span></td>
+             </tr>
+             <tr>
+               <td>Sunday</td>
+               <td><input class="day" type="time" id="start7"> </td>
+              <td><input class="day" type="time" id="end7"> </td>
+               <td><spanclass="total"  id="total7"></span></td>
+               </tr>
+             <tr>
+                 <td colspan="2"><span id="perHourTotal">Your per hour salary is $0 Dollars Per Hour</span></td>
+                 <td colspan="2"><span id="grandTotal">Your weekly hours worked is 0 Hours & 0 Minutes</span></td>
+                 </tr>
+             </tbody>
+             </table>
+             
+             </div>
+         
+    </div>
+        
+    </section>	
+        
+        <footer>
+          <div class="button_cont" align="center"><a id="saveBtn" class="savebtn" >Save</a></div>
+          
+     </footer>
+    
+    </div>
+      
+    <div id="success" class="success hidden"><span>Saved successfully!</span><span id="closeSuccess">X</span></div>
+    <div id="fail" class="fail hidden"><span>Changes not saved Error:</span><span id="closeFail">X</span></div>
+
+    <script src="../js/options.js"></script>
+      
+    </body>
