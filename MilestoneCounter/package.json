@@ -1,0 +1,27 @@
+{
+  "name": "81",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "dependencies": {
+    "after-before-date": "^1.0.1",
+    "fancy-timer": "^1.0.3",
+    "jquery": "^3.5.1",
+    "number-to-words": "^1.2.4",
+    "shado": "^1.4.0",
+    "time-stamp": "^2.2.0",
+    "timestamp-date": "^1.1.8"
+  }
+}
