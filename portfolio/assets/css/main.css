@@ -115,15 +115,17 @@ a {
   -webkit-transition: color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
-  text-decoration: underline; }
+  text-decoration: none; }
   a:hover {
-    text-decoration: none; }
+    text-decoration: underline; }
 
 strong, b {
   font-weight: 600; }
 
 em, i {
-  font-style: italic; }
+  font-style: italic;
+  color:#444444;
+ }
 
 p {
   margin: 0 0 2rem 0; }
@@ -222,7 +224,8 @@ input, select, textarea {
   color: #555555; }
 
 a {
-  color: #ce1b28; }
+  color: #444444;
+}
 
 strong, b {
   color: #555555; }
@@ -704,7 +707,7 @@ table.alt tbody tr td {
     padding: 3rem;
     text-align: center; }
     .highlights .content .icon {
-      font-size: 5rem; }
+      font-size: 2rem; }
   .highlights > div > :last-child {
     margin-bottom: 0; }
   @media screen and (max-width: 980px) {
@@ -2852,4 +2855,15 @@ body.is-menu-visible #menu {
 
 .openpop{
   text-decoration: none;
+}
+.github{
+  border-radius: 4px;
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 1rem;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  background: rgba(0, 0, 0, 0.5); }
 }
