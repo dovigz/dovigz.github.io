@@ -118,7 +118,20 @@
 		<!-- CTA -->
 			<section id="cta" class="wrapper">
 				<div class="inner">
-					<p class="view">Click to view resume</p>
+					
+					
+					<div class="links">
+						<a class="openpop" href="./images/DaveGeretzResume.pdf"><p class="view">Click to view resume</p></a>
+						</div>
+						<div class="wrapper">
+							<div class="popup">
+								<iframe src="./images/DaveGeretzResume.pdf" width=88%" height="1150px"> </iframe>
+						
+						
+							</div>
+						</div>
+
+					<!-- <iframe src="./images/DaveGeretzResume.pdf" width="90%" height="1150px"> </iframe> -->
 					<!-- <p>orttt pm ipsum dolor vestger ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p> -->
 				</div>
 			</section>
@@ -180,7 +193,13 @@
 					<div class="content">
 						<section>
 							<h3>Accumsan montes viverra</h3>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
+							<form action="./assets/php/mail.php" method="POST">
+								<p>Name</p> <input type="text" name="name">
+								<p>Email</p> <input type="text" name="email">
+								<p>Message</p><textarea name="message" rows="6" cols="25" placeholder="You're hired! When can you begin working?" >You're hired! When can you begin working?</textarea><br />
+								<input type="submit" value="Send"><input type="reset" value="Clear">
+								</form>
+							<!-- <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
 						</section>
 						<section>
 							<h4>Sem turpis amet semper</h4>
@@ -198,7 +217,7 @@
 								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
 								<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
 								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
-							</ul>
+							</ul> -->
 						</section>
 					</div>
 					<div class="copyright">
@@ -213,6 +232,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/popup.js"></script>
 
 	</body>
 </html>
