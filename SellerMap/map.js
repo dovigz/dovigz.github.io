@@ -24,9 +24,12 @@ var mapDefaultZoom = 3;
       });
     }
 
-    function add_map_point(lat, lng) {
-        
-        
+    function add_map_point(lat, lng, date) {
+      
+      var dateObject = new Date(date);
+
+      var month =(dateObject.getMonth()) + 1;
+
         
       var vectorLayer = new ol.layer.Vector({
         source:new ol.source.Vector({
@@ -39,7 +42,7 @@ var mapDefaultZoom = 3;
             anchor: [0.5, 0.5],
             anchorXUnits: "fraction",
             anchorYUnits: "fraction",
-            src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg"
+            src: "./images/" + month +".png"
           })
         })
       });
@@ -84,7 +87,7 @@ fetch("./etsy2020orders.json")
     total = (order.total);
 
 
-   add_map_point(lat, long);
+   add_map_point(lat, long, date);
   });
 
   
