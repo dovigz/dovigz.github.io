@@ -32,7 +32,7 @@
 					<li><a href="#projects">Projects</a></li>
 					<li><a href="#cta">Resume</a></li>
 					<li><a href="#contact">Contact</a></li>
-					<li><a href="#Testimonials">Testimonials</a></li>
+					<li><a href="#contact">Testimonials</a></li>
 				</ul>
 			</nav>
 
@@ -199,25 +199,25 @@
 					<div class="content">
 						<section>
 
-							<form method="post" name="contact_form"
-							action="contact-form-handler.php">
-								Your Name:
-								<input type="text" name="name">
-							
-								Email Address:
-								<input type="text" name="email">
-							
-								Message:
-								<textarea name="message"></textarea>
-							
-								<input type="submit" value="Submit">
-							</form>	
+							        
+<form action="https://postmail.invotes.com/send"
+method="post" id="email_form">
+
+<input type="text" name="subject" placeholder="Subject" />
+<textarea name="text" placeholder="Message"></textarea>
+<input type="hidden" name="access_token" value="86a8h7tqvav00causb7kbvbf" />
+
+<input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
+<input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
+
+
+<input id="submit_form" type="submit" value="Send" />
+</form>
+ 
+
 
 						</section>
 					</div>
-					<!-- <div class="copyright">
-						&copy; Untitled. Photos <a href="https://unsplash.co">Unsplash</a>, Video <a href="https://coverr.co">Coverr</a>.
-					</div> -->
 				</div>
 			</footer>
 
