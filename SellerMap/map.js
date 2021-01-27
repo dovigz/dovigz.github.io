@@ -64,7 +64,10 @@ function add_map_point(lat, lng, date, ordercount, totalX, city, state, country,
     map.addLayer(vectorLayer);
     grandTotal = grandTotal + totalX;
     var grandTotalString = grandTotal.toFixed(2);
-
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  grandTotalString = numberWithCommas(grandTotalString);
 if (!cit.includes(city) && city !==""){
   cit.push(city);
 }
