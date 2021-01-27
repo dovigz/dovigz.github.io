@@ -53,7 +53,7 @@ function add_map_point(lat, lng, date, ordercount, totalX, city, state, country,
         anchor: [0.5, 0.5],
         anchorXUnits: "fraction",
         anchorYUnits: "fraction",
-        src: "./images/12.png"
+        src: "./images/" + month +".png"
       })
     })
   });

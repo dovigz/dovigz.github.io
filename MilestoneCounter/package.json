@@ -16,6 +16,7 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
+    "add-time": "^1.0.0",
     "after-before-date": "^1.0.1",
     "fancy-timer": "^1.0.3",
     "jquery": "^3.5.1",

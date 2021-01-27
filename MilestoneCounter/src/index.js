@@ -4,13 +4,19 @@ import $ from "jquery";
 import shado from "shado";
 import timestamp from "time-stamp";
 import { FancyTimer, IFancyTimerOptions } from 'fancy-timer';
-import  tempVar from "after-before-date";
+import tempVar from "after-before-date";
 import converter from 'number-to-words';
+import addTime from "add-time";
 
 
 
 
-const chosenDate = $("#datePicker");
+var chosenDate = $("#datePicker");
+var chosenTime = $("#timePicker");
+
+
+
+
 const one = 1;
 const ten = one * 10;
 const hundred = ten * 10;
@@ -37,45 +43,77 @@ var specialEvent = "";
 
 
 var timeSpan = [one, ten, hundred, thousand, tenThousand, hundredThousand, million, tenMillion, hundredMillion, billion, tenBillion,];
+var yearSpan = [];
+
+for (var i = 1; i <= 100; i++) {
+  yearSpan.push(i);
+}
 
 
 var containerNumber = 0;
 var textDivNumber = 0;
 var conversion;
 
-document.getElementById("birthday").addEventListener("click", function() {
+document.getElementById("birthday").addEventListener("click", function () {
   specialEvent = "Birthday";
 });
-document.getElementById("anniversary").addEventListener("click", function() {
+document.getElementById("anniversary").addEventListener("click", function () {
   specialEvent = "Anniversary";
 });
 
 
-$("#birthday").add("#anniversary").click(function(){
+$("#birthday").add("#anniversary").click(function () {
 
   var div = document.getElementById('textMain');
 
   div.innerHTML += 'Since picked date';
-    
-var startDate = new Date(chosenDate.val());
-var endDate =  new Date (timestamp('MM/DD/YYYY'));
-var years = shado.date.set(startDate, endDate).getYears();
-var months = shado.date.set(startDate, endDate).getMonths();
-var weeks = shado.date.set(startDate, endDate).getWeeks();
-var days = shado.date.set(startDate, endDate).getDays(false);
-var hours = shado.date.set(startDate, endDate).getHours(false);
-var minutes = shado.date.set(startDate, endDate).getMinutes(false);
-var seconds = shado.date.set(startDate, endDate).getSeconds(false);
+
+  var startDate = new Date(chosenDate.val());
+  var startDateX = new Date(chosenDate.val());
+
+  var endDate = new Date(timestamp('MM/DD/YYYY'));
+  chosenTime = chosenTime.val()
+  console.log(startDate)
+  var chosenTimeSplit = chosenTime.split(':');
+  console.log(chosenTimeSplit);
+
+  var startdateMin = addTime(startDateX, {
+    hours: chosenTimeSplit[0],
+    minutes: chosenTimeSplit[1],
+
+  });
+
+  var enddateMin = addTime(endDate, {
+    hours: chosenTimeSplit[0],
+    minutes: chosenTimeSplit[1],
+
+  });
+
+  console.log(startdateMin)
+  console.log(chosenTime)
 
 
-document.getElementById('containerMain');
+  console.log(startDate)
 
-var main = new FancyTimer(
-    
-    document.getElementById('containerMain') ,
+  console.log(endDate)
+
+  var years = shado.date.set(startDate, endDate).getYears();
+  var months = shado.date.set(startDate, endDate).getMonths();
+  var weeks = shado.date.set(startDate, endDate).getWeeks();
+  var days = shado.date.set(startDate, endDate).getDays(false);
+  var hours = shado.date.set(startDate, endDate).getHours(false);
+  var minutes = shado.date.set(startDate, endDate).getMinutes(false);
+  var seconds = shado.date.set(startDate, endDate).getSeconds(false);
+
+
+  document.getElementById('containerMain');
+
+  var main = new FancyTimer(
+
+    document.getElementById('containerMain'),
     {
-     // value: new Date(startDate),
-     value: new Date(startDate),
+      // value: new Date(startDate),
+      value: new Date(startDate),
       captions: {
         years: 'years',
         days: 'Days',
@@ -83,176 +121,196 @@ var main = new FancyTimer(
         minutes: 'Minutes',
         seconds: 'Seconds'
       },
-      
+
       showDays: 6,
       reverseAnimation: true,
       warn: {
         secondsLeft: 60
       },
-      onWarning: function() {
+      onWarning: function () {
         console.log('WARNING!');
       }
-      
+
     }
   );
-  
+
   main.start(+1);
 
- 
-
- //////////////////////////////////////////////////////////////////
-
-   function secondsConverter(second) {
 
 
+  //////////////////////////////////////////////////////////////////
 
-second = second - secondsFrom;
+  function secondsConverter(second) {
 
 
-  
-var test = new FancyTimer(
-  
-    document.getElementById('container' + containerNumber),
-    {
-      value: second ,
-      captions: {
-        days: 'Days',
-        hours: 'Hours',
-        minutes: 'Minutes',
-        seconds: '& Seconds'
-      },
-      showDays: 6,
-      
-    }
-  );
- 
-  test.start(-1);
+
+    second = second - secondsFrom;
+
+
+
+    var test = new FancyTimer(
+
+      document.getElementById('container' + containerNumber),
+      {
+        value: second,
+        captions: {
+          days: 'Days',
+          hours: 'Hours',
+          minutes: 'Minutes',
+          seconds: '& Seconds'
+        },
+        showDays: 6,
+
+      }
+    );
+
+    test.start(-1);
   }
   // }
   //////////////////////////////////////////////////////////////////
 
-function textDiv(conversion) {
-  textDivNumber++;
-  var ele = document.getElementById('text' + textDivNumber);
+  function textDiv(conversion) {
+    textDivNumber++;
+    var ele = document.getElementById('text' + textDivNumber);
+    var dte = document.getElementById('date' + textDivNumber);
 
-  if (conversion % secondsInAYear === 0 ) {
-   
-    ele.innerHTML += converter.toWords((conversion / secondsInAYear)) + " years from your " + specialEvent +" is";
-   return;
-  } 
-  if (conversion % secondsInAMonth === 0 ) {
-    
-    ele.innerHTML += converter.toWords((conversion / secondsInAMonth)) + " months from your " + specialEvent +" is";
-   return;
-  } 
-  if (conversion % secondsInAWeek === 0 ) {
-   
-    ele.innerHTML += converter.toWords((conversion / secondsInAWeek)) + " weeks from your " + specialEvent +" is";
-   return;
-  } 
-  if (conversion % secondsInADay === 0 ) {
-    
-    ele.innerHTML += converter.toWords((conversion / secondsInADay)) + " days from your " + specialEvent +" is";
-   return;
-  } 
-  if (conversion % secondsInAHour === 0) {
-   
-    ele.innerHTML += converter.toWords((conversion / secondsInAHour)) + " hours from your " + specialEvent +" is";
-    return;
+    if (conversion % secondsInAYear === 0) {
+      ele.innerHTML += converter.toWords((conversion / secondsInAMonth)) + " months from your " + specialEvent + " is";
+      dte.innerHTML += " which will be on " + addTime(startDate, { seconds: conversion, });
+      return;
+    }
+    if (conversion % secondsInAMonth === 0) {
+
+      ele.innerHTML += converter.toWords((conversion / secondsInAMonth)) + " months from your " + specialEvent + " is";
+      dte.innerHTML += " which will be on " + addTime(startDate, { seconds: conversion, });
+      return;
+    }
+    if (conversion % secondsInAWeek === 0) {
+
+      ele.innerHTML += converter.toWords((conversion / secondsInAWeek)) + " weeks from your " + specialEvent + " is";
+      dte.innerHTML += " which will be on " + addTime(startDate, { seconds: conversion, });
+      return;
+    }
+    if (conversion % secondsInADay === 0) {
+
+      ele.innerHTML += converter.toWords((conversion / secondsInADay)) + " days from your " + specialEvent + " is";
+      dte.innerHTML += " which will be on " + addTime(startDate, { seconds: conversion, });
+
+      return;
+    }
+    if (conversion % secondsInAHour === 0) {
+
+      ele.innerHTML += converter.toWords((conversion / secondsInAHour)) + " hours from your " + specialEvent + " is";
+      dte.innerHTML += " which will be on " + addTime(startDate, { seconds: conversion, });
+      return;
+    }
+    if (conversion % 60 === 0) {
+
+      ele.innerHTML += converter.toWords((conversion / 60)) + " min from your " + specialEvent + " is";
+      dte.innerHTML += " which will be on " + addTime(startDate, { seconds: conversion, });
+      return;
+    }
+    else {
+
+      ele.innerHTML += converter.toWords((conversion)) + " sec from your " + specialEvent + " is";
+      dte.innerHTML += " which will be on " + addTime(startDate, { seconds: conversion, });
+
+    }
+
   }
-if (conversion % 60 === 0 ){
-  
-  ele.innerHTML += converter.toWords((conversion / 60)) + " min from your " + specialEvent +" is";
-  return;
-} 
-else {
-
-  ele.innerHTML += converter.toWords((conversion)) + " sec from your " + specialEvent +" is";
-
-}
-
-}
 
 
 
-    //////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
 
-var newConvertArray = [];
-var secondsFrom = shado.date.set(startDate, endDate ).getSeconds();
+  var newConvertArray = [];
+  var secondsFrom = shado.date.set(startDate, endDate).getSeconds();
 
- //seconds
+  //seconds
   timeSpan.forEach(element => {
 
     if (element < tenBillion + 1 && element - seconds > 0) {
-    
-    newConvertArray.push(element);
-}});
 
-//minutes
-timeSpan.forEach(element => {
+      newConvertArray.push(element);
+    }
+  });
 
-  if (element < billion + 1&& element - minutes > 0){
- 
-newConvertArray.push(element * 60); 
-}});
+  //minutes
+  timeSpan.forEach(element => {
 
-//hours
-timeSpan.forEach(element => {
+    if (element < billion + 1 && element - minutes > 0) {
 
-  if (element < tenMillion + 1 && element - hours > 0){  
-    
-  newConvertArray.push(element * secondsInAHour); 
-}});
+      newConvertArray.push(element * 60);
+    }
+  });
 
+  //hours
+  timeSpan.forEach(element => {
 
-//days
-timeSpan.forEach(element => {
- 
-  if (element < 1000001 && element - days > 0){  
-   
-  newConvertArray.push(element * secondsInADay); 
-}});
+    if (element < tenMillion + 1 && element - hours > 0) {
 
-//weeks
-timeSpan.forEach(element => {
- 
-  if (element < hundredThousand + 1 && element - weeks > 0){
-    
- newConvertArray.push(element * secondsInAWeek);
-}});
-
-//months
-timeSpan.forEach(element => {
- 
-  if (element < tenThousand + 1 && element - months > 0){
-    
- newConvertArray.push(element * secondsInAMonth);
-}});
- 
+      newConvertArray.push(element * secondsInAHour);
+    }
+  });
 
 
-//years
-timeSpan.forEach(element => {
+  //days
+  timeSpan.forEach(element => {
 
-  if (element < thousand + 1 && element - years > 0){
-   
- newConvertArray.push(element * secondsInAYear);
-}});
+    if (element < 1000001 && element - days > 0) {
 
-newConvertArray.sort(function(a, b){return a - b;});
+      newConvertArray.push(element * secondsInADay);
+    }
+  });
+
+  //weeks
+  timeSpan.forEach(element => {
+
+    if (element < hundredThousand + 1 && element - weeks > 0) {
+
+      newConvertArray.push(element * secondsInAWeek);
+    }
+  });
+
+  //months
+  timeSpan.forEach(element => {
+
+    if (element < tenThousand + 1 && element - months > 0) {
+
+      newConvertArray.push(element * secondsInAMonth);
+    }
+  });
 
 
 
+  //years
+  yearSpan.forEach(element => {
+
+    if (element < thousand + 1 && element - years > 0) {
+
+      newConvertArray.push(element * secondsInAYear);
+    }
+  });
 
 
-newConvertArray.forEach(element => {
-  conversion = element;
-  textDiv(conversion);
 
-  containerNumber++;
-   
+
+
+
+  newConvertArray.sort(function (a, b) { return a - b; });
+
+
+
+
+
+  newConvertArray.forEach(element => {
+    conversion = element;
+    textDiv(conversion);
+
+    containerNumber++;
+
     secondsConverter(element);
-});
+  });
 
 
 
