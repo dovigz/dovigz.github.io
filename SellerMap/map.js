@@ -58,16 +58,16 @@ function add_map_point(lat, lng, date, ordercount, totalX, city, state, country,
     })
   });
 
-
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
   setInterval(function run() {
     map.addLayer(vectorLayer);
     grandTotal = grandTotal + totalX;
     var grandTotalString = grandTotal.toFixed(2);
-    function numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  grandTotalString = numberWithCommas(grandTotalString);
+ 
+  
 if (!cit.includes(city) && city !==""){
   cit.push(city);
 }
@@ -86,8 +86,16 @@ if (!dt.includes(date) && date !==""){
 
 var average = Math.floor( ordercount / dt.length);
 
-document.getElementById('date').innerText = "PersonalizeBabyGift, As of " +date + " You made " + ordercount + " Orders in "+ dt.length + " Days, With an average of " + average +
- " Orders a day to " + idid.length + " different people, & shipped worldwide to " + (cit.length) + " Citys, " +
+grandTotalString = numberWithCommas(grandTotalString);
+ordercount = numberWithCommas(ordercount);
+datesLength = numberWithCommas(dt.length);
+idLength = numberWithCommas(idid.length);
+citiesLength = numberWithCommas(cit.length);
+
+
+
+document.getElementById('date').innerText = "PersonalizeBabyGift, As of " +date + " You made " + ordercount + " Orders in "+ datesLength + " Days, With an average of " + average +
+ " Orders a day to " + idLength + " different people, & shipped worldwide to " + citiesLength + " Citys, " +
  (st.length) + " States" + " in " + (con.length) + " Countrys. Your total revenue is  $" + grandTotalString   ;
     
 
