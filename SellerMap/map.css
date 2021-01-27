@@ -1,0 +1,34 @@
+.main_container {
+    height: 46px;
+    width: auto;
+    padding: 3px;
+    margin: 2px;
+    max-width: 300px;
+    background-color: #555555;
+    align-content: center;
+  }
+  .container_inner {
+    height: auto;
+    border: none;
+    background-color: #555555;
+    max-width: 290px;
+    vertical-align: center;
+    padding-top: 12px;
+    padding-left: 10px;
+    align-content: center;
+  }
+   .num_tiles {
+    width:30px;
+    height: 30px;
+    background-color: #888888;
+    color: #ffffff;
+    font-size: 22px;
+    text-align: center;
+    line-height: 20px;
+    padding: 3px;
+    margin: 1.5px;
+    font-family: verdana;
+    vertical-align: center;
+  }
+
+  
