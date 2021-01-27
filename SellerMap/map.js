@@ -6,6 +6,11 @@ var mapLng = -98.35;
 var mapDefaultZoom = 5.5;
 var ordercount = 0;
 var grandTotal = 0;
+var cit = [];
+var st = [];
+var con = [];
+var idid = [];
+var dt = [];
 initialize_map();
 
 
@@ -29,7 +34,7 @@ function initialize_map() {
   });
 }
 
-function add_map_point(lat, lng, date, ordercount, totalX) {
+function add_map_point(lat, lng, date, ordercount, totalX, city, state, country, id) {
 
   
   var dateObject = new Date(date);
@@ -48,7 +53,7 @@ function add_map_point(lat, lng, date, ordercount, totalX) {
         anchor: [0.5, 0.5],
         anchorXUnits: "fraction",
         anchorYUnits: "fraction",
-        src: "./images/" + month + ".png"
+        src: "./images/12.png"
       })
     })
   });
@@ -58,40 +63,33 @@ function add_map_point(lat, lng, date, ordercount, totalX) {
   setInterval(function run() {
     map.addLayer(vectorLayer);
     grandTotal = grandTotal + totalX;
-    var n = grandTotal.toFixed(2);
-    var res = n.split("");
+    var grandTotalString = grandTotal.toFixed(2);
 
-if(res.length===5){
-  res.unshift("0", "0", "0", "0");
+if (!cit.includes(city) && city !==""){
+  cit.push(city);
 }
-else if(res.length===6){
-  res.unshift("0", "0", "0");
+if (!st.includes(state)  && state !==""){
+  st.push(state);
 }
-else if(res.length===7){
-  res.unshift( "0", "0");
+if (!con.includes(country) && country !==""){
+  con.push(country);
 }
-else if(res.length===8){
-  res.unshift("0");
+if (!idid.includes(id) && id !==""){
+  idid.push(id);
+}
+if (!dt.includes(date) && date !==""){
+  dt.push(date);
 }
 
+var average = Math.floor( ordercount / dt.length);
 
-
-console.log(res);
-
-document.getElementById('cents1').innerText = res[8];
-document.getElementById('cents10').innerText =res[7];
-document.getElementById('dot').innerText = res[6];
-document.getElementById('dollar1').innerText =res[5];
-document.getElementById('dollar10').innerText = res[4];
-document.getElementById('dollar100').innerText =res[3];
-document.getElementById('dollar1000').innerText = res[2];
-document.getElementById('dollar10000').innerText =res[1];
-document.getElementById('dollar100000').innerText =res[0];
-document.getElementById('date').innerText = "As of " +date + "Your total revune is  ";
+document.getElementById('date').innerText = "PersonalizeBabyGift, As of " +date + " You made " + ordercount + " Orders in "+ dt.length + " Days, With an average of " + average +
+ " Orders a day to " + idid.length + " different people, & shipped worldwide to " + (cit.length) + " Citys, " +
+ (st.length) + " States" + " in " + (con.length) + " Countrys. Your total revenue is  $" + grandTotalString   ;
     
 
 
-  }, ordercount * 30);
+  }, ordercount * 20);
 
 
 }
@@ -124,7 +122,7 @@ const request = async () => {
 
 
 
-    add_map_point(lat, long, date, ordercount, total);
+    add_map_point(lat, long, date, ordercount, total, city, state, country, id);
   });
 };
 
