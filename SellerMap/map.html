@@ -15,23 +15,30 @@
   
   <div id="map" style="width: 100vw; height: 100vh;"></div>
 
-  <!-- <div id="cents1" style=" font-size: 40px; position: absolute;   top: 10px; left: 1355px; padding: 5px; background-color: rgba(255,255,255,0.5);">0</div>
-  <div id="cents10" style="font-size: 40px; position: absolute;  top: 10px; left: 1320px; padding: 5px; background-color: rgba(255,255,255,0.5);">0</div>
-  <div id="dot" style="font-size: 40px; position: absolute;   top: 10px; left: 1305px; padding: 5px; background-color: rgba(255,255,255,0.5);">.</div>
-  <div id="dollar1" style="font-size: 40px; position: absolute;  top: 10px; left: 1275px; padding: 5px; background-color: rgba(255,255,255,0.5);">0</div>
-  <div id="dollar10" style="font-size: 40px; position: absolute;   top: 10px; left: 1240px; padding: 5px; background-color: rgba(255,255,255,0.5);">0</div>
-  <div id="dollar100" style="font-size: 40px; position: absolute;  top: 10px; left: 1205px; padding: 5px; background-color: rgba(255,255,255,0.5);">0</div>
-  <div id="comma" style="font-size: 40px; position: absolute;  top:  10px; left: 1180px; padding: 5px; background-color: rgba(255,255,255,0.5);">,</div>
-  <div id="dollar1000" style="font-size: 40px; position: absolute;  top: 10px; left: 1145px; padding: 5px; background-color: rgba(255,255,255,0.5);">0</div>
-  <div id="dollar10000" style="font-size: 40px; position: absolute;   top: 10px; left: 1110px; padding: 5px; background-color: rgba(255,255,255,0.5);">0</div>
-  <div id="dollar100000" style="font-size: 40px; position: absolute;   top: 10px;left: 1075px; padding: 5px; background-color: rgba(255,255,255,0.5);">0</div>
-  <div id="$" style="font-size: 40px; position: absolute;  top: 10px; top: 10px; left: 1040px; padding: 5px; background-color: rgba(255,255,255,0.5);">$</div>
-  -->
-  <div id="date" style="font-size: 35px; position: absolute;  top: 10px; top: 10px; left: 45px; padding: 5px; background-color: rgba(255,255,255,0.5);"></div>
+
+  <div class ="date" id="date"></div>
+  <div id="city" class="city ex2"></div> </div>
+  <div id="state" class="state ex1"></div>
+  
+
+    
+
+  
+  <div id="speed" style="font-size: 25px; position: absolute;  top: 19px; top: 45; left: 45px; padding: 5px; background-color: rgba(184, 177, 177, 0.938);"> Select a speed and go 0 is fastest 100 is slowest<div class="slidecontainer">
+    <input type="number" min="1" max="100" value="20" class="slider" id="myRange">
+    
+  <button id="run" ">Run</buttin>
+ 
+  </div></div>
+
+  <button onClick="window.location.reload();" style="font-size: 35px; position: absolute;  bottom: 10px; right: 10px; padding: 5px; background-color: rgba(124, 112, 112, 0.938);">Refresh Page</button>
+  
+
+ 
   
   <!-- <input id="pHolder" type="text" placeholder="" style="width: 200px"> -->
 	
-	<button type="button">Search</button>
+	
 </body>
 <script src="./map.js"></script>
 </html>

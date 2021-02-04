@@ -1,34 +1,32 @@
-.main_container {
-    height: 46px;
-    width: auto;
-    padding: 3px;
-    margin: 2px;
-    max-width: 300px;
-    background-color: #555555;
-    align-content: center;
-  }
-  .container_inner {
-    height: auto;
-    border: none;
-    background-color: #555555;
-    max-width: 290px;
-    vertical-align: center;
-    padding-top: 12px;
-    padding-left: 10px;
-    align-content: center;
-  }
-   .num_tiles {
-    width:30px;
-    height: 30px;
-    background-color: #888888;
-    color: #ffffff;
-    font-size: 22px;
-    text-align: center;
-    line-height: 20px;
-    padding: 3px;
-    margin: 1.5px;
-    font-family: verdana;
-    vertical-align: center;
-  }
+p {
+  font-size: 20px;
+  margin: 0px;
+  color: #141414;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
 
-  
+b {
+  font-weight: 600;
+  color: #282b2b;
+  font-size: 21px;
+  background: #f4fdff;
+  border: 1px solid #141414;
+  padding: 1px 5px;
+}
+
+div#date {
+  position: absolute;
+  top: 0px;
+  left: 25%;
+  padding: 5px;
+  background-color: #ffffffd4;
+  width: 50%;
+  border: 1px solid #131313;
+}
+Tile{    font-size: 35px;
+   text-decoration: underline;
+}
+
+Total{background: #fffed5;}
+      
