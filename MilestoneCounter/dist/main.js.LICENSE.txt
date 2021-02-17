@@ -39,6 +39,8 @@
  * Released under the MIT License.
  */
 
+/*! https://mths.be/punycode v1.3.2 by @mathias */
+
 /**
  * Fancy Timer
  * Show countdown timer or realtime clock

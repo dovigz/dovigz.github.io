@@ -7,12 +7,19 @@ import { FancyTimer, IFancyTimerOptions } from 'fancy-timer';
 import tempVar from "after-before-date";
 import converter from 'number-to-words';
 import addTime from "add-time";
+import cal from'generate-calendar-url';
 
 
 
 
 var chosenDate = $("#datePicker");
 var chosenTime = $("#timePicker");
+
+
+
+
+
+
 
 
 
@@ -55,14 +62,18 @@ var textDivNumber = 0;
 var conversion;
 
 document.getElementById("birthday").addEventListener("click", function () {
-  specialEvent = "Birthday";
+  specialEvent = "Date of Birth";
 });
 document.getElementById("anniversary").addEventListener("click", function () {
-  specialEvent = "Anniversary";
+  specialEvent = "your anniversary ";
+});
+
+document.getElementById("other").addEventListener("click", function () {
+  specialEvent = $('#otherTxt').val();
 });
 
 
-$("#birthday").add("#anniversary").click(function () {
+$("#birthday").add("#anniversary").add("#other").click(function () {
 
   var div = document.getElementById('textMain');
 
@@ -73,7 +84,7 @@ $("#birthday").add("#anniversary").click(function () {
 
   var endDate = new Date(timestamp('MM/DD/YYYY'));
   chosenTime = chosenTime.val()
-  console.log(startDate)
+  
   var chosenTimeSplit = chosenTime.split(':');
   console.log(chosenTimeSplit);
 
@@ -88,14 +99,17 @@ $("#birthday").add("#anniversary").click(function () {
     minutes: chosenTimeSplit[1],
 
   });
-
+  console.log(startDate)
   console.log(startdateMin)
+
+  console.log(endDate)
+  console.log(enddateMin)
   console.log(chosenTime)
 
 
-  console.log(startDate)
 
-  console.log(endDate)
+
+  
 
   var years = shado.date.set(startDate, endDate).getYears();
   var months = shado.date.set(startDate, endDate).getMonths();
@@ -173,9 +187,11 @@ $("#birthday").add("#anniversary").click(function () {
     textDivNumber++;
     var ele = document.getElementById('text' + textDivNumber);
     var dte = document.getElementById('date' + textDivNumber);
+    
+    
 
     if (conversion % secondsInAYear === 0) {
-      ele.innerHTML += converter.toWords((conversion / secondsInAMonth)) + " months from your " + specialEvent + " is";
+      ele.innerHTML += converter.toWords((conversion / secondsInAYear)) + " years from your " + specialEvent + " is";
       dte.innerHTML += " which will be on " + addTime(startDate, { seconds: conversion, });
       return;
     }
@@ -216,7 +232,11 @@ $("#birthday").add("#anniversary").click(function () {
       dte.innerHTML += " which will be on " + addTime(startDate, { seconds: conversion, });
 
     }
+    
 
+
+
+    
   }
 
 
@@ -303,14 +323,34 @@ $("#birthday").add("#anniversary").click(function () {
 
 
 
+
   newConvertArray.forEach(element => {
     conversion = element;
     textDiv(conversion);
 
     containerNumber++;
+    var btn = ('button' + textDivNumber);
+    console.log(btn)
+    var res = $('#text' + textDivNumber).text();
+    
+    var event = {
+      title: res + " today!",
+      start: addTime(startDate, { seconds: conversion, }),
+      end: addTime(startDate, { seconds: conversion, }),
+      description: 'Congrats today marks' + res
+    };
+     
+    console.log(cal.google(event));
+
+    document.getElementById(btn).classList.remove("hidden");
+
+    document.getElementById(btn).addEventListener("click", function() {
+      window.open(cal.google(event), "_blank");
+    });
 
     secondsConverter(element);
   });
+
 
 
 

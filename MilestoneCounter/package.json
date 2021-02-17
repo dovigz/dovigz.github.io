@@ -16,9 +16,13 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
+    "add-event-to-calendar": "^1.0.7",
     "add-time": "^1.0.0",
+    "add-to-calendar-buttons": "^1.0.0",
+    "add2calendar": "^1.1.5",
     "after-before-date": "^1.0.1",
     "fancy-timer": "^1.0.3",
+    "generate-calendar-url": "^1.0.0",
     "jquery": "^3.5.1",
     "number-to-words": "^1.2.4",
     "shado": "^1.4.0",
