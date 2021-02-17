@@ -2835,7 +2835,7 @@ body.is-menu-visible #menu {
   }
 
 .view{
-  color: white;
+  color:black;
   font-weight: bolder;
   font-size: 80px;
   text-shadow: 0 1px 0 #ccc,
